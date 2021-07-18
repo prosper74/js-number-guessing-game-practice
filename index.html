@@ -1,38 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
-    <title>Dicee</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Number guessing game</title>
   </head>
+
   <body>
+    <h1>Number guessing game</h1>
 
-    <div class="container">
-      <div class="headerText">
-        <h1>Refresh Me</h1>
-        <span class="tooltip">Refresh the page to tose the dice</span>
-      </div>
+    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
 
-      <div class="dice">
-        <p>Player 1</p>
-        <img class="img1" src="images/dice6.png">
-      </div>
-
-      <div class="dice">
-        <p>Player 2</p>
-        <img class="img2" src="images/dice6.png">
-      </div>
-    </div> 
-
-    <div class="refresh-button">
-      <button onClick="window.location.reload();">Tose</button>
+    <div class="form">
+      <label for="guessField">Enter a guess: </label>
+      <input type="text" id="guessField" class="guessField">
+      <input type="submit" value="Submit guess" class="guessSubmit">
     </div>
-    
-    <footer>
-      🎲 Dice Game Challenge 🎲 Fullstack Web dev Bootcamp | App Brewry
-    </footer>
 
-    <script type="text/javascript" src="script.js"></script>
-  </body>  
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

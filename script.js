@@ -21,15 +21,15 @@ function checkGuess() {
     if (userGuess === randomNumber) {
         lastResult.textContent = 'Congratulations! You got it right! 🏆';
         lastResult.style.backgroundColor = 'green';
-        lastResult.style.backgroundColor = 'box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2)';
+        lastResult.classList.add("right");
         lowOrHi.textContent = '';
         setGameOver();
-    } else if (guessCount === 10) {
+    } else if (guessCount === 7) {
         lastResult.textContent = '!!!GAME OVER!!!';
         setGameOver();
     } else {
         lastResult.textContent = 'Wrong!';
-        lastResult.style.backgroundColor = 'red';
+        lastResult.classList.add("wrong");
         if(userGuess < randomNumber) {
         lowOrHi.textContent = 'Last guess was too low!';
         } else if(userGuess > randomNumber) {
@@ -50,7 +50,8 @@ function setGameOver() {
     resetButton = document.createElement('button');
     resetButton.textContent = 'Start new game';
     document.body.append(resetButton);
-    resetButton.addEventListener('click', resetGame);
+    resetButton.classList.add("resetButton");
+    resetButton.addEventListener('click', resetGame);    
 }
 
 // Reset the Game to normal
@@ -69,7 +70,9 @@ function resetGame() {
     guessField.value = '';
     guessField.focus();
 
-    lastResult.style.backgroundColor = 'white';
+    window.location.reload(false)
+
+    // lastResult.style.backgroundColor = 'white';
 
     randomNumber = Math.floor(Math.random() * 100) + 1;
 }
